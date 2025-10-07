@@ -10,17 +10,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 @WebServlet("/sendEmail")
-public class SendEmailServlet extends HttpServlet{
+public class SendEmailServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String to = request.getParameter("email");
 
-        // Nội dung mail mẫu
-        String subject = "Chào cô đến với trang web của iem!";
-        String body = "<h2>Hello!</h2>"
-                + "<p>Thử nghiệm gửi email bằng JavaMail.</p>"
-                + "<p>Chúc cô ngày mới vui vẻ!</p>";
+        // Nội dung mail mẫu mới hoàn toàn
+        String subject = "Chào cô và anh trợ giảng!";
+        String body = "<h2>Chúc cô và anh trợ giảng 1 ngày tốt lành <3</h2>"
 
         try {
             MailUtil.sendMail(to, subject, body);
